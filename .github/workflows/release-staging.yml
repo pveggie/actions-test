@@ -18,9 +18,6 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
       - name: Install node deps
         run: yarn install --frozen-lockfile
-        # required version is higher than project version so installing the dev deps on CI -_-
-      - name: Install semantic release
-        run: yarn add -g semantic-release @semantic-release/git @semantic-release/npm
       - name: Bump version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

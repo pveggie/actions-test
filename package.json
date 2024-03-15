@@ -20,8 +20,9 @@
     "url": "https://github.com/pveggie/actions-test/issues"
   },
   "homepage": "https://github.com/pveggie/actions-test#readme",
-  "dependencies": {
+  "devDependencies": {
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^11.0.3"
+    "@semantic-release/npm": "^11.0.3",
+    "semantic-release": "^23.0.3"
   }
 }
