@@ -1,0 +1,23 @@
+name: Staging Deploy
+on:
+  push:
+    branches:
+      - staging
+concurrency: staging
+jobs:
+  deploy_staging:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set-up Node
+        uses: actions/setup-node@v4
+        with:
+          # min version required by semantic-release
+          node-version: "20.8.x"
+      - name: Install node deps
+        run: yarn install --frozen-lockfile
+      - name: Bump version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
