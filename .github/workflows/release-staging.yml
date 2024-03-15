@@ -16,7 +16,8 @@ jobs:
           # min version required by semantic-release
           node-version: "20.8.x"
       - name: Install node deps
-        run: yarn install --frozen-lockfile
+        # run: yarn install --frozen-lockfile
+        run: yarn install
         # required version is higher than project version so install on ci to avoid issues
       - name: Install semantic release
         run: yarn add -D semantic-release @semantic-release/git
