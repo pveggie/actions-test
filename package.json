@@ -3,7 +3,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "name": "actions-test",
-  "version": "1.0.0",
+  "version": "1.0.0-staging.3",
   "description": "Testing github actions",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/pveggie/actions-test#readme",
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^11.0.3",
     "semantic-release": "^23.0.3"
   }
 }
