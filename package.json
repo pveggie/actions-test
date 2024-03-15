@@ -1,5 +1,7 @@
 {
-  "private": "true",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "name": "actions-test",
   "version": "1.0.0",
   "description": "Testing github actions",
