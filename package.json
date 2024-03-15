@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "name": "actions-test",
-  "version": "1.0.0-staging.4",
+  "version": "1.0.0-staging.5",
   "description": "Testing github actions",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/pveggie/actions-test/issues"
   },
-  "homepage": "https://github.com/pveggie/actions-test#readme"
+  "homepage": "https://github.com/pveggie/actions-test#readme",
+  "dependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^11.0.3"
+  }
 }
