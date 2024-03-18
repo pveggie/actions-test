@@ -8,7 +8,9 @@
   "description": "Testing github actions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "get-version": "cat package.json | jq -r '.version'",
+    "clean-version-development": "bash .github/scripts/clean_version_development.sh"
   },
   "repository": {
     "type": "git",
