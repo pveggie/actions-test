@@ -14,12 +14,34 @@ jobs:
         uses: actions/setup-node@v4
         with:
           # min version required by semantic-release
-          node-version: "20.8.x"
-          registry-url: "https://npm.pkg.github.com"
+          node-version: '20.8.x'
+          registry-url: 'https://npm.pkg.github.com'
       - name: Install node deps
         run: yarn install --frozen-lockfile
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2.0.10
+
       - name: Bump version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
+
+      - name: Build Release apk
+        run: yarn build-staging
+
+      - name: Get release file apk path
+        id: releaseApk
+        run: echo "apkfile=$(find app/build/outputs/apk/release/*.apk)" >> $GITHUB_OUTPUT
+
+      - name: Upload Release Build to Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-artifacts
+          path: ${{ steps.releaseApk.outputs.apkfile }}
