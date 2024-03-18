@@ -7,6 +7,11 @@ concurrency: development
 jobs:
   deploy_staging:
     runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,5 +28,5 @@ jobs:
         with:
           commit_message: "chore(release): remove prerelease number from development [skip ci]"
           file_pattern: "package.json"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
