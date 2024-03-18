@@ -1,10 +1,16 @@
 {
+  "private": true,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "name": "actions-test",
-  "version": "1.0.0",
+  "version": "1.0.0-staging.6",
   "description": "Testing github actions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "get-version": "cat package.json | jq -r '.version'",
+    "clean-version-development": "bash .github/scripts/clean_version_development.sh"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/pveggie/actions-test/issues"
   },
-  "homepage": "https://github.com/pveggie/actions-test#readme"
+  "homepage": "https://github.com/pveggie/actions-test#readme",
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^11.0.3",
+    "semantic-release": "^23.0.3"
+  }
 }

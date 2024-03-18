@@ -1,9 +1,9 @@
-name: Staging Deploy
+name: Clean version number on development
 on:
   push:
     branches:
-      - staging
-concurrency: staging
+      - development
+concurrency: development
 jobs:
   deploy_staging:
     runs-on: ubuntu-latest
@@ -16,10 +16,12 @@ jobs:
           # min version required by semantic-release
           node-version: "20.8.x"
           registry-url: "https://npm.pkg.github.com"
-      - name: Install node deps
-        run: yarn install --frozen-lockfile
-      - name: Bump version
+      - name: Clean version
+        run: yarn clean-version-development
+      - name: Commit version change in package.json
+        uses: stefanzweifel/git-auto-commit-action@v5.0.0
+        with:
+          commit_message: "chore(release): remove prerelease number from development [skip ci]"
+          file_pattern: "package.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
