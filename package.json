@@ -4,7 +4,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "name": "actions-test",
-  "version": "1.0.0-staging.5",
+  "version": "1.0.0-staging.6",
   "description": "Testing github actions",
   "main": "index.js",
   "scripts": {
