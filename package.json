@@ -13,7 +13,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "build-staging": "ENVFILE=.env.staging react-native run-android --appIdSuffix staging",
+    "build-staging": "cd android/ && ENVFILE=.env.staging ./gradlew assembleStagingRelease",
     "get-version": "cat package.json | jq -r '.version'",
     "clean-version-development": "bash .github/scripts/clean_version_development.sh"
   },
@@ -49,8 +49,5 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "^0.73.6"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
