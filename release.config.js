@@ -28,9 +28,7 @@ module.exports = {
     [
       '@semantic-release/github',
       {
-        assets: [
-          {path: './android/app/build/outputs/apk/${branch.name}/release/*'},
-        ],
+        assets: [{path: './android/app/build/outputs/apk/**/*'}],
       },
     ],
     '@semantic-release/npm',
