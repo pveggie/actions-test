@@ -33,15 +33,15 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
-      - name: Build Release apk
-        run: yarn build-staging
+      # - name: Build Release apk
+      #   run: yarn build-staging
 
-      - name: Get release file apk path
-        id: releaseApk
-        run: echo "apkfile=$(find ./android/app/build/outputs/apk/staging/release/*.apk)" >> "$GITHUB_OUTPUT"
+      # - name: Get release file apk path
+      #   id: releaseApk
+      #   run: echo "apkfile=$(find ./android/app/build/outputs/apk/staging/release/*.apk)" >> "$GITHUB_OUTPUT"
 
-      - name: Upload Release Build to Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: release-artifacts
-          path: ${{ steps.releaseApk.outputs.apkfile }}
+      # - name: Upload Release Build to Artifacts
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: release-artifacts
+      #     path: ${{ steps.releaseApk.outputs.apkfile }}
