@@ -13,7 +13,7 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "build-staging": "cd android/ && ENVFILE=.env.staging ./gradlew assembleStagingRelease",
+    "build-staging": "ENVFILE=.env.staging ./gradlew assembleStagingRelease",
     "get-version": "cat package.json | jq -r '.version'",
     "clean-version-development": "bash .github/scripts/clean_version_development.sh"
   },
