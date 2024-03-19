@@ -23,14 +23,13 @@ module.exports = {
       '@semantic-release/exec',
       {
         prepareCmd: 'yarn "build-${branch.name}"',
+        execCwd: 'android',
       },
     ],
     [
       '@semantic-release/github',
       {
-        assets: [
-          {path: './android/app/build/outputs/apk/${branch.name}/release/*'},
-        ],
+        assets: [{path: 'app/build/outputs/apk/${branch.name}/release/*'}],
       },
     ],
     '@semantic-release/npm',
